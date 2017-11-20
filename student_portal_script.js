@@ -49,6 +49,70 @@ function save_row(no)
  let stream_val=document.getElementById("stream_text"+no).value;
  let passout_val=document.getElementById("passout_text"+no).value;
 
+     let pttrn1=/^[a-zA-Z\s]+$/;
+    let pttrn3=/^[0-9]{10}$/;
+    let pttrn2=/^[0-9]{4}$/;
+
+
+ if(fname_val == "")
+	{
+	fname();
+	return false;
+	}
+	
+else if(lname_val == "")
+	{
+		lname();
+		return false;
+	
+	}
+else if(roll_val == "")
+	{
+		roll();
+		return false;
+	}	
+else if(stream_val == "")
+	{
+	stream();
+	return false;
+
+	}
+else if(passout_val == "")
+	{
+	pass();
+	return false;	
+	}
+else if(!pttrn1.test(fname_val))
+	{
+			fname_pt();
+	return false;
+
+	}
+else if(!pttrn1.test(lname_val))
+	{
+			lname_pt();
+		return false;
+	
+	}	
+else if(!pttrn3.test(roll_val))
+	{
+				roll_pt();
+		return false;
+
+	}	
+else if(!pttrn1.test(stream_val))
+	{
+	stream_pt();
+	return false;
+
+	}
+else if(!pttrn2.test(passout_val))
+	{
+	pass_pt();
+	return false;	
+	}
+else{
+
  document.getElementById("fname_row"+no).innerHTML=fname_val;
  document.getElementById("lname_row"+no).innerHTML=lname_val;
  document.getElementById("roll_row"+no).innerHTML=roll_val;
@@ -57,6 +121,7 @@ function save_row(no)
 
  document.getElementById("edit_button"+no).style.display="block";
  document.getElementById("save_button"+no).style.display="none";
+}
 }
 
 function delete_row(no)
